@@ -8,25 +8,33 @@ function Navbar(props) {
     onSignOut();
   };
   return (
-    <nav className="Navbar">
-      <NavLink exact to="/">
+
+    <nav className="Navbar" style={{ backgroundColor: "#D3D2EA" }}>
+      <NavLink style={{ padding: "20px" }} exact to="/">
         Home
       </NavLink>
-      <NavLink exact to="/">
+      <NavLink style={{ padding: "20px" }} exact to="/">
         Auctions
       </NavLink>
-      <NavLink exact to="/auctions/new">
+      <NavLink style={{ padding: "20px" }} exact to="/auctions/new">
+
         New Auction
       </NavLink>
       {user ? (
         [
-          <span key="1">Hello, {user.first_name}</span>,
+
+          <span style={{ padding: "20px" }} key="1">
+            Hello, {user.first_name}
+          </span>,
+
           <a key="2" href="/sign_out" onClick={handleSignOut}>
             Sign Out
           </a>
         ]
       ) : (
-        <NavLink exact to="/sign_in">
+
+        <NavLink style={{ padding: "20px" }} exact to="/sign_in">
+
           Sign In
         </NavLink>
       )}
