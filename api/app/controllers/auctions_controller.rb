@@ -15,6 +15,8 @@ class AuctionsController < ApplicationController
 
    def create
      auction = Auction.new auction_params
+     auction.user = current_user
+     print auction.item
      auction.save!
      render json: auction
    end

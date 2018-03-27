@@ -1,6 +1,6 @@
 class BidsController < ApplicationController
   before_action :authenticate_user!
-  # before_action :authorize_user!
+  before_action :authorize_user!
 
   def create
     @bid = Bid.new bid_params
@@ -22,13 +22,13 @@ class BidsController < ApplicationController
    params.require(:bid).permit(:price)
  end
 
-#  def authorize_user!
-#    unless can?(:manage, :all)
-#      #
-#      render(
-#        json: { errors: [{type: "Unauthorized"}] }, status: :unauthorized
-#      )
-#    end
-# end
+ def authorize_user!
+   unless can?(:manage, :all)
+     #
+     render(
+       json: { errors: [{type: "Unauthorized"}] }, status: :unauthorized
+     )
+   end
+end
 
 end
